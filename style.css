@@ -1,0 +1,805 @@
+/*Background Effect*/
+html, body {
+    width: 100%;
+    height:100%;
+    margin:0;
+    box-sizing: border-box;
+  }
+  
+  body {
+      background: linear-gradient(-50deg, #3f3f3f, #a5a5a5, #CDC9C3, #E0ECE4);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+  }
+  
+  @keyframes gradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+
+/*Logo Nama*/   
+    .Logo {
+        width: 58px;
+        height: 58px;
+        border-radius: 30%;
+        position: fixed;
+        left: 95px;
+        top: 15px;
+        z-index: 2;
+    }
+
+/*Text Deco*/
+.textdeco-1, .textdeco-2, .textdeco-3, .textdeco-4 {
+  text-decoration: none;
+}
+ 
+/*Panggil FONT*/
+@font-face {
+    font-family: 'Static';
+    src: url(static/StickNoBills-Bold.ttf);
+}
+
+/*Content*/
+  .left-banner, .right-banner {
+    display: grid;
+    place-items: center;
+  }
+  .row {
+    height: 100vh;
+    padding-left: 7%;
+    padding-top: 2.2%;
+  }
+  .flex-1 {
+    flex: 1;
+  }
+    .ContentIntro {
+      text-align: left;
+      flex: 1.5;
+    }
+    .Fotoku {
+      width: 345px;
+      height: 480px;
+      top: 37px;
+      border-radius: 5%;
+    }    
+    .Introduction {
+        font-family: 'Static';
+        font-size: 30px;
+        font-style: normal;
+        margin: 0;
+        width: 15em;
+        word-wrap: break-word;
+    }
+    .Interest {
+        font-family: 'Static';
+        font-size: 45px;
+        font-style: normal;
+        margin: 0;
+        width: 16em;
+        word-wrap: break-word;
+    }
+    .Sec-Introduction {
+        font-size: 15px;
+        font-style: normal;
+        line-height: 24px;
+        margin: 0;
+        width: 30em;
+        text-align: justify;
+    }
+
+/*Email button*/
+ .text-email {
+   text-decoration: none;
+   font-size: small;
+ }
+ .Email_btn {
+   width: 16px;
+   height: 16px;
+ }
+ .Emailbtn {
+    width: 150px;
+    height: 45px;
+    border: none;
+    outline: none;
+    color: rgb(0, 0, 0);
+    background: rgb(253, 253, 253);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 4.5%;
+  }
+ .Emailbtn:before {
+    content: '';
+    background: linear-gradient(45deg, #4285f4, #c5221e, #ea4335, #33a852);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(8px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 25s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+  }
+  .Emailbtn:active {
+    color: rgb(253, 253, 253);
+  }
+  .Emailbtn:active:after {
+    background: transparent;
+  }
+  .Emailbtn:hover:before {
+    opacity: 1;
+  }
+  .Emailbtn:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(253, 253, 253);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+  @keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+  }
+  .Linkedin_btn {
+    width: 28px;
+    height: 28px;
+    margin-left: 16px;
+    margin-top: 2.9px;
+  }
+  .Line_btn {
+    width: 28px;
+    height: 28px;
+    margin-left: 7px;
+  }
+  .Iconbtn {
+    display: flex;
+    align-items: center;
+  }
+
+/*Menu about dll*/
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+/*Untuk box burger menu*/
+  * {
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+  }
+
+  a,
+  a:visited,
+  a:hover,
+  a:active {
+    color: inherit;
+    text-decoration: none;
+  }
+
+/*Burger Button*/
+  .Burgermenu {
+    position: fixed;
+    top: 20px;
+    right: -462px;
+    width: 40%;
+    z-index: 1;  
+  }
+  .Burgermenu .checkbox-toggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 55px;
+    height: 55px;
+    opacity: 0;
+  }
+  
+/*Transformation Burgermenu*/
+  .Burgermenu .checkbox-toggle:checked + .Burger > div {
+    transform: rotate(135deg);
+  }
+  .Burgermenu .checkbox-toggle:checked + .Burger > div:before,
+  .Burgermenu .checkbox-toggle:checked + .Burger > div:after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  .Burgermenu .checkbox-toggle:checked + .Burger > div:after {
+    opacity: 0;
+  }
+  .Burgermenu .checkbox-toggle:hover + .Burger {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .Burgermenu .checkbox-toggle:checked:hover + .Burger > div {
+    transform: rotate(225deg);
+  }
+
+/*Transformation Menu*/
+  .Burgermenu .checkbox-toggle:checked ~ .menu {
+    pointer-events: auto;
+    visibility: visible;
+  }
+  .Burgermenu .checkbox-toggle:checked ~ .menu > div {
+    transform: scale(1);
+    transition-duration: 0.88s;
+  }
+  .Burgermenu .checkbox-toggle:checked ~ .menu > div > div {
+    opacity: 1;
+    transition: opacity 0.4s ease 0.4s;
+  }
+  .Burgermenu .Burger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 55px;
+    height: 55px;
+    padding: 0.5em 1em;
+    background: rgba(2, 2, 2, 0.75);
+    opacity: 10;
+    border-radius: 15%;
+    cursor: pointer;
+    transition: box-shadow 0.4s ease;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Burgermenu .Burger > div {
+    position: relative;
+    flex: none;
+    width: 100%;
+    height: 2px;
+    background: #FEFEFE;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Burgermenu .Burger > div:before,
+  .Burgermenu .Burger > div:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+    transition: all 0.4s ease;
+  }
+  .Burgermenu .Burger > div:after {
+    top: 10px;
+  }
+  .Burgermenu .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    visibility: hidden;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    outline: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Burgermenu .menu > div {
+    width: 200vw;
+    height: 200vw;
+    color: #ffffff;
+    background: rgba(179, 179, 182, 0.97);
+    opacity: 100;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    flex: none;
+    transform: scale(0);
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Burgermenu .menu > div > div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    overflow-y: auto;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Burgermenu .menu > div > div > ul {
+    list-style: none;
+    padding: 0 1em;
+    margin: 0;
+    display: block;
+    max-height: 100vh;
+  }
+  .Burgermenu .menu > div > div > ul > li {
+    padding: 0;
+    margin: 1em;
+    font-size: 34px;
+    display: block;
+  }
+  .Burgermenu .menu > div > div > ul > li > a {
+    position: relative;
+    display: inline;
+    cursor: pointer;
+    transition: color 0.4s ease;
+  }
+  .Burgermenu .menu > div > div > ul > li > a:hover {
+    color: #000000;
+  }
+  .Burgermenu .menu > div > div > ul > li > a:hover:after {
+    width: 100%;
+  }
+  .Burgermenu .menu > div > div > ul > li > a:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    bottom: -0.15em;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #e5e5e5;
+    transition: width 0.4s ease;
+  }
+
+/*Background Gray*/
+  .Content-Grid2 {
+    background-color: #3a3a3a;
+    color: white;
+    display: block;
+    width: 1530px;
+    height: 2000px;
+  }
+  .ContentProject {
+    text-align: left;
+    flex: 1.5;
+    padding-left: 8%;
+    padding-top: 4%;
+  }
+  .Judul {
+    margin: 0;
+    font-weight: bold;
+  }
+
+/*Img preview project*/
+  .Preview_Trev {
+    width: 850px;
+    height: 570px;
+    padding-left: 8%;
+    padding-top: 3.5%;
+  }
+  .Preview_Bellang {
+    width: 850px;
+    height: 570px;
+    padding-left: 8%;
+    padding-top: 2%;
+  }
+  .Preview_Kpopstore {
+    width: 850px;
+    height: 570px;
+    padding-left: 8%;
+    padding-top: 2%;
+  }
+
+/*Hovert text*/
+  .Trev, .Bellang, .Kpopstore{
+    font-size: small;
+    opacity: 80%;
+    box-sizing: border-box;
+    transition: all .35s ease;
+    display: inline-block;
+    list-style: outside none none;
+    margin: .5em 1em;
+    padding: .5em .8em;
+    color: rgba(255,255,255,.5);
+    position: relative;
+    text-decoration: none;
+  }
+  .trevbtn, .bellangbtn, .kpopstorebtn{
+    padding-left: 6.5%;
+    padding-top: 1%;
+  }
+  .Trev::before,
+  .Trev::after, 
+  .Bellang::before,
+  .Bellang::after,
+  .Kpopstore::before,
+  .Kpopstore::after  {
+    content: '';
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    transition: all .35s ease;
+    opacity: 0;
+  }
+  .Trev::before, .Bellang::before, .Kpopstore::before {
+    content: '';
+    right: 0;
+    top: 0;
+    border-top: 3px solid #ffffff;
+    border-right: 3px solid #cacaca;
+    transform: translate(-100%, 50%);
+  }
+  .Trev:after, .Bellang:after, .Kpopstore::after {
+    content: '';
+    left: 0;
+    bottom: 0;
+    border-bottom: 3px solid #ffffff;
+    border-left: 3px solid #cacaca;
+    transform: translate(100%, -50%)
+  }
+  .Trev:hover:before,
+  .Trev:hover:after,
+  .Bellang:hover:before,
+  .Bellang:hover:after,
+  .Kpopstore:hover:before,
+  .Kpopstore:hover:after{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  .Trev:hover, .Bellang:hover, .Kpopstore:hover {
+    color: #ffffff;
+  }
+
+  .content-grid3 {
+    align-items: center;
+  }
+
+/*Hire Text*/
+.hire {
+  text-align: center;
+  padding: 4%;
+	font-size: 60px;  
+	font-weight: 850;
+	letter-spacing:0.1em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 
+						5px 5px #6b6a6a,
+						11px 11px #000000; 
+}
+
+/*Hire Image*/
+.point-1 {
+  width: 350px;
+  height: 300px;
+  border-radius: 3%;
+}
+.point-2 {
+  width: 350px;
+  height: 300px;
+  border-radius: 3%;
+}
+.point-3 {
+  width: 350px;
+  height: 300px;
+  border-radius: 3%;
+}
+
+/*3D hover*/
+.hire-1, .hire-2, .hire-3 {
+  perspective: 3000px;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+}
+.hire-1, .hire-2, .hire-3  {
+  transform: rotateX(70deg) rotateZ(-60deg) translate3d(-120px, 0px, 70px);
+  box-shadow: -100px 50px 16px 5px rgba(0,0,0,0.4);
+  transition: all .6s;
+  transform-style: preserve-3d;
+}
+.hire-1:hover, .hire-2:hover, .hire-3:hover  {
+  transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+}
+
+/*Skill*/
+.content-grid4 {
+  background-color: #212733;
+  color: rgb(0, 0, 0);
+  display: block;
+  width: 1530px;
+  height: 450px;
+  margin-top: -23%;
+}
+.content-skill {
+  text-align: center;
+  padding: 3%;
+  color: #fff;
+}
+.judul-skill {
+  font-weight: bold;
+}
+.content-center {
+  justify-content: center;
+  display: grid;
+}
+
+/*Skill Progress*/
+.skill-bars{
+  padding: 25px 30px;
+  width: 600px;
+  background: #fff;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+.skill-bars .bar{
+  margin: 20px 0;
+}
+.skill-bars .bar:first-child{
+  margin-top: 0px;
+}
+.skill-bars .bar .info{
+  margin-bottom: 5px;
+}
+.skill-bars .bar .info span{
+  font-weight: 500;
+  font-size: 17px;
+  opacity: 0;
+  animation: showText 0.5s 1s linear forwards;
+}
+@keyframes showText {
+  100%{
+    opacity: 1;
+  }
+}
+.skill-bars .bar .progress-line{
+  height: 10px;
+  width: 100%;
+  background: #f0f0f0;
+  position: relative;
+  transform: scaleX(0);
+  transform-origin: left;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.05),
+              0 1px rgba(255,255,255,0.8);
+  animation: animate 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+@keyframes animate {
+  100%{
+    transform: scaleX(1);
+  }
+}
+.bar .progress-line span{
+  height: 100%;
+  position: absolute;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #070066;
+  animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+.bar .progress-line.htmlcss span{
+  width: 80%;
+}
+.bar .progress-line.java span{
+  width: 60%;
+}
+.bar .progress-line.c span{
+  width: 55%;
+}
+.bar .progress-line.tableau span{
+  width: 75%;
+}
+.bar .progress-line.axure span{
+  width: 77%;
+}
+.bar .progress-line.ps span{
+  width: 80%;
+}
+.bar .progress-line.premiere span{
+  width: 88%;
+}
+.progress-line span::before{
+  position: absolute;
+  content: "";
+  top: -10px;
+  right: 0;
+  height: 0;
+  width: 0;
+  border: 7px solid transparent;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-color: #000;
+  opacity: 0;
+  animation: showText2 0.5s 1.5s linear forwards;
+}
+.progress-line span::after{
+  position: absolute;
+  top: -28px;
+  right: 0;
+  font-weight: 500;
+  background: #000;
+  color: #fff;
+  padding: 1px 8px;
+  font-size: 12px;
+  border-radius: 3px;
+  opacity: 0;
+  animation: showText2 0.5s 1.5s linear forwards;
+}
+@keyframes showText2 {
+  100%{
+    opacity: 1;
+  }
+}
+.progress-line.htmlcss span::after{
+  content: "80%";
+}
+.progress-line.java span::after{
+  content: "60%";
+}
+.progress-line.c span::after{
+  content: "55%";
+}
+.progress-line.tableau span::after{
+  content: "75%";
+}
+.progress-line.axure span::after{
+  content: "77%";
+}
+.progress-line.ps span::after{
+  content: "80%";
+}
+.progress-line.premiere span::after{
+  content: "88%";
+}
+
+/*Content Last*/
+.background-end {
+  margin-top: 20%;
+  width: 1530px;
+  height: 380px;
+}
+.content-end {
+  color: #fff;
+  text-align: left;
+  margin-left: 4%;
+}
+.end-text {
+  margin-top: -20%;
+  font-size: 24px;
+}
+.text-1 {
+  font-size: 13px;
+  margin-top: 3%;
+}
+
+/*Icon End*/
+.wrapper {
+  position: absolute;
+  margin-top: 2%;
+  margin-left: 1.5%;
+}
+/* Style the Un-order list by setting its list-style to none */
+.wrapper ul {
+  list-style: none;
+}
+
+/* Style the list items inside the UL list, by setting its width, height and line-height 
+  and float them to left and set its border and border-radius.
+ */
+.wrapper ul li {
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  margin: 0 10px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #D8E2DC;
+  float: left;
+  transition: all 0.5s ease;
+}
+
+/* Style the icons by setting its color and margin-top value to 20px 
+to align it properly */
+.wrapper ul li .fa {
+  color: #D8E2DC;
+  margin-top: 20px;
+  transition: all 0.5s ease;
+}
+
+/* Now target the specific li classes for styling and use box-shadow effect to border and text-shadow effect
+  to icons for glowing effect and use transition property for smooth transition effect. */
+
+/*Linkedin*/
+.wrapper ul li:hover.linkedin {
+  border: 5px solid #099bcf;
+  box-shadow: 0 0 15px #099bcf;
+  transition: all 0.5s ease;
+}
+
+.wrapper ul li:hover .fa-linkedin {
+  color: #099bcf;
+  text-shadow: 0 0 15px #099bcf;
+  transition: all 0.5s ease;
+}
+
+/*Instagram*/
+.wrapper ul li:hover.instagram {
+  border: 5px solid #bc2a8d;
+  box-shadow: 0 0 15px #bc2a8d;
+  transition: all 0.5s ease;
+}
+
+.wrapper ul li:hover .fa-instagram {
+  color: #bc2a8d;
+  text-shadow: 0 0 15px #bc2a8d;
+  transition: all 0.5s ease;
+}
+
+/*Google*/
+.wrapper ul li:hover.google {
+  border: 5px solid #dd4b39;
+  box-shadow: 0 0 15px #dd4b39;
+  transition: all 0.5s ease;
+}
+
+.wrapper ul li:hover .fa-google {
+  color: #dd4b39;
+  text-shadow: 0 0 15px #dd4b39;
+  transition: all 0.5s ease;
+}
+
+/* media queries */
+
+@media screen and (max-width: 640px){
+  .wrapper {
+      width: 350px;
+  }
+  .wrapper ul li{
+      margin-top: 10px;
+  }
+  .wrapper ul li.google{
+      margin-left: 60px;
+  }
+}
+
+@media screen and (max-width: 340px){
+  .wrapper {
+      width: 150px;
+  }
+  .wrapper ul li{
+      margin:15px;
+  }
+  .wrapper ul li.google{
+      margin-left: 15px;
+  }
+}
+
+  
